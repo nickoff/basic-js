@@ -23,9 +23,46 @@ const { NotImplementedError } = require('../extensions/index.js');
  *  [1, 1, 1]
  * ]
  */
-function minesweeper(/* matrix */) {
-  throw new NotImplementedError('Not implemented');
-  // remove line with error and write your code here
+function minesweeper(matrix) {
+  let sumMinMatrix = Array(matrix.length);
+  let sum;
+  for(let i = 0; i < sumMinMatrix.length; i++) {
+    sumMinMatrix[i] = Array(matrix[0].length)
+  }
+
+  for(let i = 0; i < matrix.length; i++){
+    for(let j = 0; j < matrix[i].length; j++){
+      sum = 0;
+      if(i){
+        if (matrix[i - 1][j] === true) {sum++}
+          }
+      if(j && i){
+            if (matrix[i - 1][j - 1] === true) {sum++}
+          }
+      if(i && j < matrix[i].length) {
+            if (matrix [i - 1][j + 1] === true) {sum++}
+          }
+      
+      if(j < matrix[i].length) {
+          if (matrix[i][j + 1] === true) {sum++}
+        }
+      if(j) {
+        if(matrix[i][j - 1] === true) {sum++}
+        }
+      if(i < matrix.length - 1) {
+        if (matrix[i + 1][j] === true) {sum++}
+      }
+      if(i < matrix.length - 1 && j) {
+        if (matrix[i + 1][j - 1] === true){sum++}
+      }
+      if(i < matrix.length - 1 && j < matrix[i].length) {
+        if (matrix[i + 1][j + 1] === true){sum++}
+      }
+      sumMinMatrix[i][j] = sum;
+    }
+
+  }
+  return sumMinMatrix
 }
 
 module.exports = {
