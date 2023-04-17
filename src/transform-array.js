@@ -18,7 +18,7 @@ function transform(arr) {
   if(!Array.isArray(arr)) {throw new Error('\'arr\' parameter must be an instance of the Array!')};
   if(!arr.includes('--double-next') && !arr.includes('--double-prev') && !arr.includes('--discard-prev') && !arr.includes('--discard-next')) {return arr};
   
-  console.debug(arr)
+  //console.debug(arr)
   let arrResult = [];
   arrResult = arrResult.concat(arr)
   
